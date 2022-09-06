@@ -290,8 +290,8 @@ class _PayMethodScreenState extends State<PayMethodScreen> {
                                 map);
                             controller.cartCollection = [];
                             controller.newCartCollection = [];
-                            address = TextEditingController();
-                            phoneNumber = TextEditingController();
+                            address.clear();
+                            phoneNumber.clear();
                             showModalBottomSheet(
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20)),
