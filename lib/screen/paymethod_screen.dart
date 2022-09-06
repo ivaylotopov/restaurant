@@ -24,6 +24,7 @@ TextEditingController phoneNumber = TextEditingController();
 
 class _PayMethodScreenState extends State<PayMethodScreen> {
   final key = GlobalKey<FormState>();
+
   int _value = 1;
   @override
   Widget build(BuildContext context) {
@@ -58,6 +59,7 @@ class _PayMethodScreenState extends State<PayMethodScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Form(
+                  key: key,
                   child: Column(
                     children: [
                       addressForm(context),
@@ -259,9 +261,12 @@ class _PayMethodScreenState extends State<PayMethodScreen> {
                   SizedBox(
                     height: 50,
                     width: double.infinity,
-                    child: HomeScreen().button(
-                        name: "Поръчай",
-                        function: () {
+                    child: RaisedButton(
+                      color: const Color.fromARGB(255, 63, 53, 153),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25)),
+                      onPressed: () async {
+                        if (key.currentState?.validate() == true) {
                           if (controller.cartCollection.isNotEmpty) {
                             Map<String, int> map = Map<String, int>();
                             for (var i = 0;
@@ -327,11 +332,16 @@ class _PayMethodScreenState extends State<PayMethodScreen> {
                                     ),
                                   );
                                 });
-                          } else {
-                            return "Вашата количка е празна";
                           }
-                        }),
-                  ),
+                        }
+                      },
+                      child: Text("Поръчай",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: const Color.fromARGB(255, 240, 242, 245),
+                          )),
+                    ),
+                  )
                 ]),
               ),
             ],
