@@ -261,10 +261,15 @@ class _PayMethodScreenState extends State<PayMethodScreen> {
                   SizedBox(
                     height: 50,
                     width: double.infinity,
-                    child: RaisedButton(
-                      color: const Color.fromARGB(255, 63, 53, 153),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25)),
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              const Color.fromARGB(255, 63, 53, 153)),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(25)))),
                       onPressed: () async {
                         if (key.currentState?.validate() == true) {
                           if (controller.cartCollection.isNotEmpty) {

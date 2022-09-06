@@ -12,9 +12,13 @@ class HomeScreen extends StatelessWidget {
     return SizedBox(
       height: 50,
       width: 280,
-      child: RaisedButton(
-        color: const Color.fromARGB(255, 63, 53, 153),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+      child: ElevatedButton(
+        style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+                const Color.fromARGB(255, 63, 53, 153)),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25)))),
         onPressed: function,
         child: Text(name,
             style: TextStyle(
