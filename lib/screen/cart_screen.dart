@@ -139,10 +139,11 @@ class _CartScreenState extends State<CartScreen> {
       body: ListView.builder(
         itemCount: controller.cartCollection.length,
         itemBuilder: (e, index) {
-          controller.getIndex(index);
           return product(
               function: () {
-                controller.delete();
+                setState(() {
+                  controller.cartCollection.removeAt(index);
+                });
               },
               image: controller.cartCollection[index].image,
               name: controller.cartCollection[index].name,

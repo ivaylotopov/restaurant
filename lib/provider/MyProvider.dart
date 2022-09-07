@@ -349,18 +349,4 @@ class Controller extends ChangeNotifier {
     });
     return price;
   }
-
-  late int indexDelete;
-  void getIndex(int index) {
-    if (index == 0) {
-      indexDelete = index;
-    } else {
-      indexDelete = index - 1;
-    }
-  }
-
-  void delete() {
-    cartCollection.removeAt(indexDelete);
-    notifyListeners();
-  }
 }
